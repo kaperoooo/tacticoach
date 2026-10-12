@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TactiCoach</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-block">
+          <h1>TactiCoach</h1>
+          <p>Football tactical platform</p>
+        </div>
+
+        <section class="panel">
+          <h2>Projects</h2>
+          <div class="toolbar-row">
+            <input id="projectName" type="text" placeholder="Project name" />
+            <button id="createProjectBtn">New</button>
+          </div>
+          <ul id="projectList" class="list"></ul>
+        </section>
+
+        <section class="panel">
+          <h2>Formation</h2>
+          <select id="formationSelect"></select>
+          <button id="applyFormationBtn">Apply</button>
+        </section>
+
+        <section class="panel">
+          <h2>Scheme</h2>
+          <input id="schemeName" type="text" placeholder="Scheme name" />
+          <button id="saveSchemeBtn">Save</button>
+        </section>
+
+        <section class="panel">
+          <h2>Scenario</h2>
+          <input id="scenarioName" type="text" placeholder="Scenario name" />
+          <button id="saveScenarioBtn">Save</button>
+        </section>
+
+        <section class="panel small-actions">
+          <button id="exportJsonBtn">Export JSON</button>
+          <label class="file-upload">
+            <span>Import JSON</span>
+            <input id="importJsonInput" type="file" accept="application/json" />
+          </label>
+          <button id="exportPngBtn">Export PNG</button>
+        </section>
+      </aside>
+
+      <main class="workspace">
+        <div class="topbar">
+          <div>
+            <h2 id="activeProjectTitle">No project selected</h2>
+            <span id="statusBadge" class="status-badge">Ready</span>
+          </div>
+          <div class="topbar-actions">
+            <button id="clearBtn">Clear</button>
+            <button id="undoBtn">Undo</button>
+            <button id="redoBtn">Redo</button>
+          </div>
+        </div>
+
+        <div class="tool-panel">
+          <button class="tool-btn active" data-tool="select">Select</button>
+          <button class="tool-btn" data-tool="player">Add player</button>
+          <button class="tool-btn" data-tool="ball">Ball</button>
+          <button class="tool-btn" data-tool="cone">Cone</button>
+          <button class="tool-btn" data-tool="line">Line</button>
+          <button class="tool-btn danger" data-tool="remove">Delete</button>
+        </div>
+
+        <div class="pitch-shell">
+          <svg id="pitchSvg" viewBox="0 0 1000 680" aria-label="Tactical field"></svg>
+        </div>
+      </main>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>

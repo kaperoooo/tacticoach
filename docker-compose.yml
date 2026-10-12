@@ -1,0 +1,13 @@
+version: '3.9'
+services:
+  tacticoach:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+      - ./tacticoach.db:/app/tacticoach.db
+    environment:
+      - APP_ENV=development
+      - DATABASE_URL=sqlite:////app/tacticoach.db
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
